@@ -33,6 +33,8 @@
     <string name="hint_animal_type">Tipo de Animal</string>
     <string name="animal_type_error_selection">Precisa escolher uma opção</string>
     <string name="description_image_pet_type">Image of Pet type</string>
+    <string name="text_first_vaccine">First Vaccine Date:</string>
+    <string name="text_next_vaccine">Next Vaccine Date:</string>
 
     <string-array name="pet_type">
         <item>😺</item>
