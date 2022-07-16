@@ -7,6 +7,7 @@ import com.example.petcard.databinding.ActivityListVaccinesPetBinding
 import com.example.petcard.listeners.ItemVaccineListener
 import com.example.petcard.viewmodels.ListVaccinesPetsViewModel
 import com.example.petcard.views.adapters.ListPetVaccineAdapter
+import com.google.android.material.snackbar.Snackbar
 
 class ListVaccinesPetActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListVaccinesPetBinding
@@ -19,11 +20,20 @@ class ListVaccinesPetActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ListVaccinesPetsViewModel::class.java]
         adapter = ListPetVaccineAdapter(object : ItemVaccineListener {
             override fun onClickButton(id: Long) {
-                TODO("Not yet implemented")
+                viewModel.getVaccines(id)
             }
 
         })
 
         setContentView(binding.root)
+    }
+
+    private fun handleObservers() {
+        viewModel.vaccines.observe(this) {
+            adapter.updateList(it)
+        }
+        viewModel.error.observe(this) {
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+        }
     }
 }
