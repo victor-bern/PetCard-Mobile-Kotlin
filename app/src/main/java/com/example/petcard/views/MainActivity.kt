@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcard.R
 import com.example.petcard.databinding.ActivityMainBinding
+import com.example.petcard.listeners.ItemPetListener
 import com.example.petcard.utils.PetsPreference
 import com.example.petcard.viewmodels.MainActivityViewModel
 import com.example.petcard.views.adapters.ListPetAdapter
@@ -19,13 +20,21 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var binding: ActivityMainBinding
-    private val adapter = ListPetAdapter()
+    private lateinit var adapter: ListPetAdapter
     private lateinit var petsPreference: PetsPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+
+        adapter = ListPetAdapter(object : ItemPetListener {
+            override fun onItemPetClick(petId: String) {
+                val intent = Intent(this@MainActivity, ListVaccinesPetActivity::class.java)
+                intent.putExtra("petid", petId)
+                startActivity(intent)
+            }
+        })
 
         binding.recyclerPetsList.layoutManager = LinearLayoutManager(this)
         binding.recyclerPetsList.adapter = adapter

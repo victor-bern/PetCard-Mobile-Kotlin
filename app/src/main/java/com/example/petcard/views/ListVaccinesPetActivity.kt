@@ -20,12 +20,13 @@ class ListVaccinesPetActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ListVaccinesPetsViewModel::class.java]
         adapter = ListPetVaccineAdapter(object : ItemVaccineListener {
             override fun onClickButton(id: Long) {
-                viewModel.getVaccines(id)
+                TODO()
             }
 
         })
-
         setContentView(binding.root)
+        handleObservers()
+
     }
 
     private fun handleObservers() {
