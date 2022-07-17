@@ -9,7 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Teste"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +34,7 @@
             android:id="@+id/text_first_vaccine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="16/03/2022" />
+            android:layout_marginTop="3dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,8 +46,7 @@
             android:id="@+id/text_next_vaccine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="16/03/2023" />
+            android:layout_marginTop="3dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
