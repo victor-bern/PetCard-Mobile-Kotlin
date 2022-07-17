@@ -3,6 +3,7 @@ package com.example.petcard.views
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcard.databinding.ActivityListVaccinesPetBinding
 import com.example.petcard.listeners.ItemVaccineListener
 import com.example.petcard.viewmodels.ListVaccinesPetsViewModel
@@ -23,6 +24,8 @@ class ListVaccinesPetActivity : AppCompatActivity() {
                 val a = ""
             }
         })
+        binding.recyclerVaccinesList.layoutManager = LinearLayoutManager(this)
+        binding.recyclerVaccinesList.adapter = adapter
         setContentView(binding.root)
         handleExtras()
         handleObservers()
