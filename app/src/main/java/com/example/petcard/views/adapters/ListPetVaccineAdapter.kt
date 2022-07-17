@@ -8,7 +8,7 @@ import com.example.petcard.listeners.ItemVaccineListener
 import com.example.petcard.models.Vaccine
 import com.example.petcard.views.viewholders.ListPetVaccinesViewHolder
 
-class ListPetVaccineAdapter(val listener: ItemVaccineListener) : RecyclerView.Adapter<ListPetVaccinesViewHolder>() {
+class ListPetVaccineAdapter(private val listener: ItemVaccineListener) : RecyclerView.Adapter<ListPetVaccinesViewHolder>() {
     private var vaccines: List<Vaccine> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPetVaccinesViewHolder {
@@ -21,7 +21,7 @@ class ListPetVaccineAdapter(val listener: ItemVaccineListener) : RecyclerView.Ad
     }
 
     override fun getItemCount(): Int {
-        return vaccines.size
+        return vaccines.count()
     }
 
     fun updateList(vaccines: List<Vaccine>) {

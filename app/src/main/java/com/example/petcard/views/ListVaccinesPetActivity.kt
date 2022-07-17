@@ -20,7 +20,7 @@ class ListVaccinesPetActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ListVaccinesPetsViewModel::class.java]
         adapter = ListPetVaccineAdapter(object : ItemVaccineListener {
             override fun onClickButton(id: Long) {
-                TODO()
+                val a = ""
             }
         })
         setContentView(binding.root)
@@ -39,7 +39,7 @@ class ListVaccinesPetActivity : AppCompatActivity() {
     }
 
     private fun handleExtras() {
-        val id = intent.getLongExtra("id", 0)
-        viewModel.getVaccines(id)
+        val id = intent.getStringExtra("petid")
+        viewModel.getVaccines(id!!.toLong())
     }
 }
