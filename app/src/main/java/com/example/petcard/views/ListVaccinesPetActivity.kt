@@ -22,9 +22,9 @@ class ListVaccinesPetActivity : AppCompatActivity() {
             override fun onClickButton(id: Long) {
                 TODO()
             }
-
         })
         setContentView(binding.root)
+        handleExtras()
         handleObservers()
 
     }
@@ -36,5 +36,10 @@ class ListVaccinesPetActivity : AppCompatActivity() {
         viewModel.error.observe(this) {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    private fun handleExtras() {
+        val id = intent.getLongExtra("id", 0)
+        viewModel.getVaccines(id)
     }
 }
