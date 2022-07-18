@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         adapter = ListPetAdapter(object : ItemPetListener {
             override fun onItemPetClick(petId: String) {
-                val intent = Intent(this@MainActivity, ListVaccinesPetActivity::class.java)
+                val intent = Intent(applicationContext, ListVaccinesPetActivity::class.java)
                 intent.putExtra("petid", petId)
                 startActivity(intent)
             }

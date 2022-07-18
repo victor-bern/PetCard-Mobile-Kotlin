@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.AddVaccineActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ListVaccinesPetActivity"
             android:exported="false" />
         <activity
